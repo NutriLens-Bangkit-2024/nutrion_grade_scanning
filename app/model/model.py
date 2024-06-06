@@ -1,12 +1,12 @@
 import pytesseract
 import re
 from PIL import Image
+from io import BytesIO
 
 # r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-# '/app/.apt/usr/bin/tesseract'
 def read_img(img):
     pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
-    image = Image.open(img)
+    image = Image.open(BytesIO(img))
     image = image.convert('L')
     threshold = 128
     image = image.point(lambda p: p > threshold and 255)
