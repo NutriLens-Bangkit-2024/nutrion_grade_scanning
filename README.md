@@ -58,7 +58,10 @@ This indicates that your FastAPI application is running and can be accessed at `
 docker build -t nutri-ocr .
 ```
 
-### **5.Run Docker Container**
+### **5. Run Docker Container**
 ```bash
 docker run -d -p 8006:8006 nutri-ocr
 ```
+
+### **6. Testing API with Postman**
+![Api Testing Example](./image_md/api_test.png)
