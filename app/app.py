@@ -29,7 +29,6 @@ def home():
 
 @app.post("/predict", response_model=PredictionOut)
 async def prediction(file: UploadFile = File(...)):
-    # image = await ImageUpload.from_upload_file(file)
     if allowed_file(file.filename):
         contents = await file.read()
         img = read_img(contents)
