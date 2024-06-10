@@ -27,7 +27,7 @@ class NutritionLabelExtractor:
                              'amount per pack'},
             'energi': ['energi total', 'total energi', 'energy total', 'total energy', 'calories', 'energi', 'energy'],
             'protein': ['protein'],
-            'lemak': ['lemak total', 'total lemak', 'total fat', 'lemak'],
+            'lemak': ['lemak total', 'total lemak', 'total fat'],
             'karbohidrat': ['karbohidrat', 'karbohidrat total', 'total carbohydrate'],
             'serat': ['serat', 'serat pangan', 'dietary fiber'],
             'natrium': ['natrium', 'garam', 'salt', 'sodium']
