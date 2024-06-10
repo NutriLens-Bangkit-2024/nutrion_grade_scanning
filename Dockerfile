@@ -1,5 +1,9 @@
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.10
 
+RUN apt-get update && apt-get install -y \
+    libgl1-mesa-glx \
+    && rm -rf /var/lib/apt/lists/*
+
 # Copy and install Python dependencies
 COPY ./requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
