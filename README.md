@@ -1,5 +1,5 @@
 # Nutrition OCR
-
+This API extracts nutritional information from an image of a nutrition label. The supported image formats are `.jpg`, `.jpeg`, `.png`, and `.heic`
 ## Running the Models
 
 These steps will guide you through setting up the environment, installing dependencies, and running the NutriLens Grade Models.
@@ -40,13 +40,6 @@ pip install -r requirements.txt
 cd app
 uvicorn app:app --port 8006 
 ```
-Note:
-
-* Change the `pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'` in .app/model/model.py to `pytesseract.pytesseract.tesseract_cmd = '<your local tesseract path>'`
-* Replace `<your local tesseract path>` with the path to your local Tesseract installation.
-* Replace `<specified your port>` with the port number you want to use. 
-
-After running the command, you should see output similar to:
 
 ```text
 INFO:Uvicorn running on http://localhost:8006 (Press CTRL+C to quit)
@@ -63,5 +56,36 @@ docker build -t nutri-ocr .
 docker run -d -p 8006:8006 nutri-ocr
 ```
 
-### **6. Testing API with Postman**
+### **6. Accepted File Formats**
+```text
+file.jpg or file.png or file.jpg or file.jpeg or file.heic
+```
+Note :
+* Ensure that the image file format is one of the supported formats listed above.
+
+### **7. Output**
+```json
+{
+  "takaran_saji": 0, 
+  "energi": 0,
+  "protein": 0,
+  "lemak": 0,
+  "karbohidrat": 0,
+  "serat": 0,
+  "natrium": 0
+}
+```
+#### Description of Output Fields :
+* takaran_saji: int
+* energi: float
+* protein: float
+* lemak: float
+* karbohidrat: float
+* serat: float
+* natrium: float
+
+Note:
+* The output values for takaran_saji, energi, protein, lemak, karbohidrat, serat, and natrium are initialized to 0. These values will be replaced with the actual extracted values from the nutrition label.
+
+### **8. Testing API with Postman**
 ![Api Testing Example](./image_md/api_test.png)
